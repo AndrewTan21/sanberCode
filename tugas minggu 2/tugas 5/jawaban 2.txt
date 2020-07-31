@@ -1,0 +1,14 @@
+1. akses database myshop
+use database myshop;
+
+2. membuat table users
+create table users (id int primary key auto_increment, name varchar(255), email varchar(255), password varchar(255));
+
+3. membuat table items
+create table items (id int primary key auto_increment, name varchar(255), description varchar(255), price int, stock int, category_id int);
+
+4. membuat table categories
+create table categories (id int primary key auto_increment, name varchar(255));
+
+5. membuat foreign key category_id references id categories
+alter table items add foreign key (category_id) references categories(id);

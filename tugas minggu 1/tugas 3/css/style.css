@@ -1,0 +1,83 @@
+/* remember to define focus styles! */
+:focus {
+    outline: 0;
+}
+
+body {
+    background-image: url('../img/pattern.jpg');
+}
+
+.card-header .btn-link:hover,
+.card-header .btn-link:focus {
+    text-decoration: none;
+}
+
+.section-navbar {
+    background-color: #f8f9fa;
+    padding-bottom: 12px;
+}
+
+.section-navigation {
+    background-color: #343a40;
+    margin: 15px;
+    padding: 10px 0;
+}
+
+.section-navigation ul li a {
+    color: #f8f9fa;
+}
+
+.section-navigation ul li a:hover {
+    color: #0878e7;
+    transition: ease-in 0.5s;
+}
+
+.section-card {
+    margin-top: 15px;
+}
+
+.section-card .card img {
+    padding: 10px;
+}
+
+.section-card .card h5 {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.section-link {
+    margin-top: 15px;
+}
+
+.section-link .row .dropdown button {
+    width: 100%;
+}
+
+footer {
+    height: 60px;
+    display: flex;
+    background-color: #343a40;
+    margin-top: 15px;
+}
+
+footer h5 {
+    color: #FFF;
+    margin:  auto;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .section-card .card img.img-md-height {
+        height: 300px;
+    }
+
+    .section .row .col-md,
+    .section-card .col-md {
+        padding-left: 0;
+    }
+    
+    .section-card .col-md:nth-child(1),
+    .section .row .col-md:nth-child(1) {
+        padding-left: 15px;
+    }
+}

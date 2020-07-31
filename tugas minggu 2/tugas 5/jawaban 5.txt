@@ -1,0 +1,2 @@
+1. Ubahlah data pada table items untuk item dengan nama sumsang harganya (price) menjadi 2500000.
+update items set price = 2500000 where name = "Sumsang b50";

@@ -1,0 +1,13 @@
+1. jalankan webserver apache dan dbms mysql melalu aplikasi xampp
+
+2. jalankan command prompt melalui windows + r dengan key-word cmd
+
+3. akses directory C:/xampp/mysql/bin
+
+4. masukkan key-word mysql -u root -p lalu enter
+
+5. membuat database myshop
+create database myshop;
+
+6. untuk melihat list database
+show databases;

@@ -1,0 +1,15 @@
+1. Masukkan data users ke dalam table users
+insert into users values ('', 'John Doe', 'john@doe.com', 'john123');
+insert into users values ('', 'Jane Doe', 'jane@doe.com', 'jenita123');
+
+2. Masukkan data categories ke dalam table categories
+insert into categories values ('', 'gadget');
+insert into categories values ('', 'colth');
+insert into categories values ('', 'men');
+insert into categories values ('', 'women');
+insert into categories values ('', 'branded');
+
+3. Masukkan data items ke dalam table items
+insert into items values ('', 'Sumsang b50', 'hape keren dari merek sumsang', 4000000, 100, 1);
+insert into items values ('', 'Uniklooh', 'baju keren dari brand ternama', 500000, 50, 2);
+insert into items values ('', 'IMHO Watch', 'jam tangan anak yang jujur banget', 2000000, 10, 1);

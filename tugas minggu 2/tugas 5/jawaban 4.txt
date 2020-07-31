@@ -1,0 +1,11 @@
+1. Menampilkan data users kecuali password
+select name, email from users;
+
+2. Menampilkan data items yang memliki harga 1000000
+select price from items where price >= 1000000;
+
+3. Buat sebuah query untuk mengambil data item pada table items yang memiliki name serupa atau mirip (like) dengan kata kunci “uniklo”, “watch”, atau “sang” (pilih salah satu saja).
+select * from items where name like '%watch%';
+
+4. Buatlah sebuah query untuk menampilkan data items yang dilengkapi dengan data nama kategori di masing-masing items. Berikut contoh tampilan data yang ingin didapatkan
+select items.*, categories.name as category from items, categories where items.category_id=categories.id;
