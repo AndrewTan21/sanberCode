@@ -8,4 +8,4 @@ select price from items where price >= 1000000;
 select * from items where name like '%watch%';
 
 4. Buatlah sebuah query untuk menampilkan data items yang dilengkapi dengan data nama kategori di masing-masing items. Berikut contoh tampilan data yang ingin didapatkan
-select items.*, categories.name as category from items, categories where items.category_id=categories.id;
+select items.*, categories.name as category from items inner join categories on items.category_id=categories.id;
