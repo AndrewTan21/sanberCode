@@ -1,4 +1,4 @@
-@extends('master')
+@extends('.adminlte/master')
 
 @section('content')
 <table class="table table-bordered">
