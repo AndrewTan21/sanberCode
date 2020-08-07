@@ -15,7 +15,7 @@ class CreateQuestionsCommentTable extends Migration
     {
         Schema::create('questions_comment', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('isi');
+            $table->longText('isi');
             $table->timestamps();
         });
     }

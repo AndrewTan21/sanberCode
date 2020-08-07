@@ -15,7 +15,7 @@ class CreateLikeDislikeQuestionsTable extends Migration
     {
         Schema::create('like_dislike_questions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('poin');
+            $table->integer('poin')->nullable();
             $table->timestamps();
         });
     }
