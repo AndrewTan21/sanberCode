@@ -47,6 +47,7 @@ class PertanyaanController extends Controller
     public function update($pertanyaan_id, Request $request) {
         $request->validate([
             'judul' => 'required|unique:questions',
+            // 'judul' => ['required', Rule::unique('questions')->ignore($pertanyaan_id)],
             'isi' => 'required'
         ]);
 
