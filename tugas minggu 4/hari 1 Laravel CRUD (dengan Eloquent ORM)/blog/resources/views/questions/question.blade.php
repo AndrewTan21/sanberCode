@@ -12,7 +12,7 @@
                 {{session('success')}}
             </div>
         @endif
-        <a class="btn btn-danger" href="/pertanyaan/create" style="margin-bottom: 1.25rem;">Create New Question</a>
+        <a class="btn btn-danger" href="{{route('pertanyaan.create')}}" style="margin-bottom: 1.25rem;">Create New Question</a>
         <thead>
         <tr>
             <th style="width: 30px;">Id</th>
@@ -28,9 +28,9 @@
                     <td>{{$question->judul}}</td>
                     <td>{{$question->isi}}</td>
                     <td style="display: flex;">
-                        <a href="/pertanyaan/{{$question->id}}" class="btn btn-info btn-sm" style="width: 33.33%; margin-right: 10px">show</a>
-                        <a href="/pertanyaan/{{$question->id}}/edit" class="btn btn-primary btn-sm" style="width: 33.33%; margin-right: 10px">edit</a>
-                        <form action="/pertanyaan/{{$question->id}}" method="POST" style="width: 33.33%;">
+                        <a href="{{route('pertanyaan.show', ['pertanyaan' => $question->id])}}" class="btn btn-info btn-sm" style="width: 33.33%; margin-right: 10px">show</a>
+                        <a href="{{route('pertanyaan.edit', ['pertanyaan' => $question->id])}}" class="btn btn-primary btn-sm" style="width: 33.33%; margin-right: 10px">edit</a>
+                        <form action="{{route('pertanyaan.destroy', ['pertanyaan' => $question->id])}}" method="POST" style="width: 33.33%;">
                             @csrf
                             @method("DELETE")
                             <input type="submit" value="delete" class="btn btn-danger btn-sm" style="width: 100%; margin-right: 10px">

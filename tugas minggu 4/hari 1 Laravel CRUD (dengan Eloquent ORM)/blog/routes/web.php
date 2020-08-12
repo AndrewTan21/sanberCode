@@ -21,10 +21,12 @@ Route::get('/data-tables', function() {
     return view('data-tables', ['page' => $page]);
 });
 
-Route::get('/pertanyaan', 'PertanyaanController@index');
-Route::get('/pertanyaan/create', 'PertanyaanController@create');
-Route::post('/pertanyaan', 'PertanyaanController@store');
-Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
-Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit');
-Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update');
-Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy');
+// Route::get('/pertanyaan', 'PertanyaanController@index')->name('pertanyan.index');
+// Route::get('/pertanyaan/create', 'PertanyaanController@create');
+// Route::post('/pertanyaan', 'PertanyaanController@store');
+// Route::get('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@show');
+// Route::get('/pertanyaan/{pertanyaan_id}/edit', 'PertanyaanController@edit');
+// Route::put('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@update');
+// Route::delete('/pertanyaan/{pertanyaan_id}', 'PertanyaanController@destroy');
+
+Route::resource('pertanyaan', 'PertanyaanController');

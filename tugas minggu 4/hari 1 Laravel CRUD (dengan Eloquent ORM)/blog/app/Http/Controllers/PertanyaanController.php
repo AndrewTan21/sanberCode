@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Question;
 
 class PertanyaanController extends Controller
 {
     public function index() {
         $page = 'Questions';
-        $questions = DB::table('questions')->get();
+        // cara mengunakan query builder
+        // $questions = DB::table('questions')->get();
+
+        // cara memanggil data mengunakan model / eloquent ORM
+        $questions = Question::all();
+
         return view('questions.question', ['page' => $page], compact('questions'));
     }
 
@@ -24,23 +30,45 @@ class PertanyaanController extends Controller
             'isi' => 'required'
         ]);
 
-        $query = DB::table('questions')->insert([
-                'judul' => $request['judul'],
-                'isi' => $request['isi']
-            ]);
+        // $query = DB::table('questions')->insert([
+        //     'judul' => $request['judul'],
+        //     'isi' => $request['isi']
+        // ]);
+        
+        // mengunakan cara default insert mengunakan model / eloquent ORM
+        // $question = new Question;
+        // $question->judul = $request['judul'];
+        // $question->isi = $request['isi'];
+        // $question->save();
+
+        // mengunakan cara mass assigment dengan modal / eloquent ORM
+        $question = Question::create([
+            "judul" => $request["judul"],
+            "isi" => $request["isi"]
+        ]);
 
         return redirect('/pertanyaan')->with('success', 'Question Berhasil Di Simpan!');
     }
 
     public function show($pertanyaan_id) {
         $page = 'Show';
-        $question = DB::table('questions')->where('id', $pertanyaan_id)->first();
+        // cara mengunakan query builder
+        // $question = DB::table('questions')->where('id', $pertanyaan_id)->first();
+
+        // cara menunjuk data mengunakan model / eloquent ORM
+        $question = Question::find($pertanyaan_id);
+
         return view('questions.show', compact('question'), ['page' => $page]);
     }
 
     public function edit($pertanyaan_id) {
         $page = 'Edit';
-        $question = DB::table('questions')->where('id', $pertanyaan_id)->first();
+        // cara mengunakan query builder
+        // $question = DB::table('questions')->where('id', $pertanyaan_id)->first();
+
+        // cara menunjuk data mengunakan model / eloquent ORM
+        $question = Question::find($pertanyaan_id);
+
         return view('questions.edit', compact('question'), ['page' => $page]);
     }
 
@@ -51,15 +79,27 @@ class PertanyaanController extends Controller
             'isi' => 'required'
         ]);
 
-        $query = DB::table('questions')->where('id', $pertanyaan_id)->update([
+        // cara mengunakan query builder
+        // $query = DB::table('questions')->where('id', $pertanyaan_id)->update([
+        //     'judul' => $request['judul'],
+        //     'isi' => $request['isi']
+        // ]);
+
+        // cara update mengunakan cara mass assigment dengan modal / eloquent ORM
+        $query = Question::where('id', $pertanyaan_id)->update([
             'judul' => $request['judul'],
             'isi' => $request['isi']
         ]);
+
         return redirect('/pertanyaan')->with('success', 'Berhasil Update Questions!');
     }
 
     public function destroy($pertanyaan_id) {
-        $query = DB::table('questions')->where('id', $pertanyaan_id)->delete();
+        // cara mengunakan query builder
+        // $query = DB::table('questions')->where('id', $pertanyaan_id)->delete();
+
+        // cara delete dengan modal / eloquent ORM
+        Question::destroy($pertanyaan_id);
         return redirect('/pertanyaan')->with('success', 'Question Berhail Di Delete!');
     }
 }
