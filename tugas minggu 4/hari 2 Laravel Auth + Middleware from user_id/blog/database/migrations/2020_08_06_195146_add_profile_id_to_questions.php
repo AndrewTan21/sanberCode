@@ -15,7 +15,7 @@ class AddProfileIdToQuestions extends Migration
     {
         Schema::table('questions', function (Blueprint $table) {
             $table->unsignedBigInteger('profile_id')->nullable();
-            $table->foreign('profile_id')->references('id')->on('users');
+            $table->foreign('profile_id')->references('id')->on('profiles');
         });
     }
 
