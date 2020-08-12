@@ -38,15 +38,29 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'profiles',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'profiles',
             'hash' => false,
         ],
     ],
+
+    // original or default auth
+    // 'guards' => [
+    //     'web' => [
+    //         'driver' => 'session',
+    //         'provider' => 'users',
+    //     ],
+
+    //     'api' => [
+    //         'driver' => 'token',
+    //         'provider' => 'users',
+    //         'hash' => false,
+    //     ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------
@@ -66,9 +80,9 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'profiles' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => App\Profile::class,
         ],
 
         // 'users' => [
@@ -76,6 +90,19 @@ return [
         //     'table' => 'users',
         // ],
     ],
+
+    // original or default auth
+    // 'providers' => [
+    //     'users' => [
+    //         'driver' => 'eloquent',
+    //         'model' => App\User::class,
+    //     ],
+
+    //     // 'users' => [
+    //     //     'driver' => 'database',
+    //     //     'table' => 'users',
+    //     // ],
+    // ],
 
     /*
     |--------------------------------------------------------------------------

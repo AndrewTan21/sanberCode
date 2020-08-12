@@ -5,9 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Question;
+use Auth;
 
 class PertanyaanController extends Controller
 {
+    public function __construct() {
+        $this->middleware('auth')->except('index');
+    }
+
     public function index() {
         $page = 'Questions';
         // cara mengunakan query builder
@@ -44,7 +49,8 @@ class PertanyaanController extends Controller
         // mengunakan cara mass assigment dengan modal / eloquent ORM
         $question = Question::create([
             "judul" => $request["judul"],
-            "isi" => $request["isi"]
+            "isi" => $request["isi"],
+            "profile_id" => Auth::user()->id
         ]);
 
         return redirect('/pertanyaan')->with('success', 'Question Berhasil Di Simpan!');

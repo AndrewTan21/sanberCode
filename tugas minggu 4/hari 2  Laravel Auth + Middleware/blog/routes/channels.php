@@ -11,6 +11,11 @@
 |
 */
 
-Broadcast::channel('App.User.{id}', function ($user, $id) {
-    return (int) $user->id === (int) $id;
+// default channel user Routes
+// Broadcast::channel('App.User.{id}', function ($user, $id) {
+//     return (int) $user->id === (int) $id;
+// });
+
+Broadcast::channel('App.profile.{id}', function ($profile, $id) {
+    return (int) $profile->id === (int) $id;
 });
